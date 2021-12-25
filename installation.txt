@@ -49,9 +49,13 @@ server {
     }
 }
 
+/* https://docs.nginx.com/nginx/admin-guide/web-server/serving-static-content/ */
+serving the static content
+
 /* Logs */
 /* https://www.journaldev.com/26756/nginx-access-logs-error-logs */
 /var/log/nginx
  - error.log
  - access.log
+ 
 
