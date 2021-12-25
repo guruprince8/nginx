@@ -19,6 +19,7 @@ sudo systemctl enable nginx
 
 Reverse Proxy Settings
 /* https://www.tecmint.com/nginx-as-reverse-proxy-for-nodejs-app/ */
+
 server {
     listen 80;
     server_name sysmon.tecmint.lan;
@@ -27,6 +28,24 @@ server {
         proxy_set_header   X-Forwarded-For $remote_addr;
         proxy_set_header   Host $http_host;
         proxy_pass         http://192.168.43.31:5000;
+    }
+}
+
+/* https://serverfault.com/questions/886582/single-server-nginx-as-a-reverse-proxy-multiple-domains-websites */
+server {
+    server_name mydomain-01.com;
+
+    location / {
+      proxy_redirect http://localhost:8001 https://mydomain-01.com;
+      ...
+    }
+}
+server {
+    server_name mydomain-02.com;
+
+    location / {
+      proxy_redirect http://localhost:8002 https://mydomain-02.com;
+      ...
     }
 }
 
