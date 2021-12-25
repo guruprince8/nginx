@@ -17,4 +17,22 @@ sudo systemctl disable nginx
 sudo systemctl enable nginx
 /* Step 4 – Setting Up Server Blocks (Recommended) */
 
+Reverse Proxy Settings
+/* https://www.tecmint.com/nginx-as-reverse-proxy-for-nodejs-app/ */
+server {
+    listen 80;
+    server_name sysmon.tecmint.lan;
+
+    location / {
+        proxy_set_header   X-Forwarded-For $remote_addr;
+        proxy_set_header   Host $http_host;
+        proxy_pass         http://192.168.43.31:5000;
+    }
+}
+
+/* Logs */
+/* https://www.journaldev.com/26756/nginx-access-logs-error-logs */
+/var/log/nginx
+ - error.log
+ - access.log
 
