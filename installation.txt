@@ -59,4 +59,11 @@ serving the static content
  - access.log
  
  /* https://stackoverflow.com/questions/24691560/nginx-redirects-post-requests-to-get-request */
+    proxy_pass http://myapp_mycompany_com;
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header X-Real-IP $remote_addr;
+    proxy_set_header Host $http_host;
+    proxy_redirect off;
+    proxy_intercept_errors on;
+    expires -1;
 
