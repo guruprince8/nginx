@@ -58,4 +58,5 @@ serving the static content
  - error.log
  - access.log
  
+ /* https://stackoverflow.com/questions/24691560/nginx-redirects-post-requests-to-get-request */
 
