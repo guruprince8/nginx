@@ -20,6 +20,8 @@ sudo systemctl enable nginx
 Reverse Proxy Settings
 /* https://www.tecmint.com/nginx-as-reverse-proxy-for-nodejs-app/ */
 
+/etc/nginx/sites-available
+
 server {
     listen 80;
     server_name sysmon.tecmint.lan;
