@@ -69,3 +69,4 @@ serving the static content
     proxy_intercept_errors on;
     expires -1;
 
+sudo apt remove nginx
